@@ -6,7 +6,7 @@ import { ActorLink, RepoLink, BranchLink } from './Links';
 import Avatar from './Avatar';
 
 const CreateEvent = ({data}) => (
-  <div className="rga-event-title">
+  <div className="rgs-event-title">
     <ActorLink actor={data.actor} />&nbsp;
     created {data.payload.ref_type}&nbsp;
     {data.ref ?

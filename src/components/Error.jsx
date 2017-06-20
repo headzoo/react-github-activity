@@ -3,7 +3,7 @@
 import React from 'react';
 
 const Error = ({error}) => (
-  <div className="rga-error">
+  <div className="rgs-error">
     <strong>Github Error</strong>
     {error.message}
     {error.documentation_url ?

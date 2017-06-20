@@ -55,12 +55,12 @@ export default class Event extends React.Component {
     }
     
     return (
-      <li className="rga-event">
-        <div className="rga-event-icon">
+      <li className="rgs-event">
+        <div className="rgs-event-icon">
           <Octicon name={EVENT_ICONS[data.type]} />
         </div>
-        <div className="rga-event-inner">
-          <div className="rga-event-time">
+        <div className="rgs-event-inner">
+          <div className="rgs-event-time">
             <TimeAgo date={data.created_at} />
           </div>
           {event}

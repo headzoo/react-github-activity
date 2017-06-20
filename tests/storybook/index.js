@@ -3,19 +3,19 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
-import GithubActivity from '../../src/components/GithubActivity';
+import GithubStream from '../../src/components/GithubStream';
 import '../../src/scss/main.scss';
 
-storiesOf('GithubActivity', module)
+storiesOf('GithubStream', module)
   .addDecorator(withKnobs)
   .addWithInfo(
-  'GithubActivity',
+  'GithubStream',
   `
     Basic usage...
   `,
   () => (
     <div style={{width: "550px"}}>
-      <GithubActivity user="headzoo" />
+      <GithubStream user="headzoo" />
     </div>
   )
 );

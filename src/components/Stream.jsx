@@ -8,7 +8,7 @@ import Octicon from './Octicon';
 
 const Stream = ({events, types, className, ...elementProps}) => {
   return (
-    <ul className={classNames('rga-stream', className)} {...elementProps}>
+    <ul className={classNames('rgs-stream', className)} {...elementProps}>
       {events.map((e, i) => {
         if (types.indexOf(e.type) === -1) {
           return null;

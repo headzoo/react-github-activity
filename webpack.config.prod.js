@@ -5,14 +5,15 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const { resolve } = require('path');
 
 const config = {
-  entry: {
-    'index': './src/scss/main.scss'
-  },
+  entry: [
+    './src/components/GithubStream.jsx',
+    './src/scss/main.scss'
+  ],
   output: {
-    path:              resolve(__dirname, 'dist'),
-    publicPath:        '',
-    filename:          '[name].js',
-    sourceMapFilename: '[name].map'
+    path: resolve(__dirname, 'dist'),
+    filename: 'index.js',
+    library: 'react-github-stream',
+    libraryTarget: 'umd'
   },
   context: resolve(__dirname, './'),
   plugins: [
@@ -38,10 +39,32 @@ const config = {
       }
     }),
     new ExtractTextPlugin({
-      filename: '[name].css',
+      filename: 'index.css',
       disable: false,
       allChunks: true
     })
+  ],
+  externals: [
+    {
+      'react': {
+        root: 'react',
+        commonjs2: 'react',
+        commonjs: 'react',
+        amd: 'react'
+      },
+      'react-dom': {
+        root: 'react-dom',
+        commonjs2: 'react-dom',
+        commonjs: 'react-dom',
+        amd: 'react-dom'
+      },
+      'prop-types': {
+        root: 'prop-types',
+        commonjs2: 'prop-types',
+        commonjs: 'prop-types',
+        amd: 'prop-types'
+      }
+    }
   ],
   module: {
     loaders: [
@@ -52,11 +75,19 @@ const config = {
           fallback: 'style-loader',
           use:      [
             'css-loader',
-            { loader: 'sass-loader', options: { sourceMap: true } }
+            { loader: 'sass-loader' }
           ]
         })
+      },
+      {
+        test: /\.jsx?$/,
+        exclude: /(node_modules)/,
+        use: 'babel-loader'
       }
     ]
+  },
+  resolve: {
+    extensions: ['.js', '.jsx']
   }
 };
 

@@ -4,7 +4,7 @@ import React from 'react';
 
 const Avatar = ({actor}) => (
   <a href={actor.url}>
-    <img className="rga-event-avatar" src={actor.avatar_url} />
+    <img className="rgs-event-avatar" src={actor.avatar_url} />
   </a>
 );
 

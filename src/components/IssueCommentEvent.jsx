@@ -6,7 +6,7 @@ import Avatar from './Avatar';
 
 const IssueCommentEvent = ({data}) => (
   <div>
-    <div className="rga-event-title">
+    <div className="rgs-event-title">
       <ActorLink actor={data.actor} />&nbsp;
       commented on issue&nbsp;
       <IssueLink
@@ -15,9 +15,9 @@ const IssueCommentEvent = ({data}) => (
         comment={data.payload.comment} />
     </div>
     
-    <div className="rga-event-details">
+    <div className="rgs-event-details">
       <Avatar actor={data.actor} />
-      <div className="rga-event-message">
+      <div className="rgs-event-message">
         {data.payload.comment.body}
       </div>
     </div>

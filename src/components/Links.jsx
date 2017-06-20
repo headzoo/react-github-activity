@@ -17,7 +17,7 @@ export const RepoLink = ({repo}) => (
 );
 
 export const BranchLink = ({repo, payload}) => (
-  <a href={GithubAPI.getBranchURL(repo.name, payload.ref)} className="rga-branch-name">
+  <a href={GithubAPI.getBranchURL(repo.name, payload.ref)} className="rgs-branch-name">
     {payload.ref}
   </a>
 );

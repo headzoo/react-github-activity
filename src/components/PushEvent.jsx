@@ -6,13 +6,13 @@ import Avatar from './Avatar';
 
 const PushEvent = ({data}) => (
   <div>
-    <div className="rga-event-title">
+    <div className="rgs-event-title">
       <ActorLink actor={data.actor} /> pushed to <RepoLink repo={data.repo} />
     </div>
   
-    <div className="rga-event-details">
+    <div className="rgs-event-details">
       <Avatar actor={data.actor} />
-      <div className="rga-event-message">
+      <div className="rgs-event-message">
         <CommitLink
           repo={data.repo}
           commit={data.payload.commits[0]} /> {data.payload.commits[0].message}

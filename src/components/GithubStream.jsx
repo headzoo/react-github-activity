@@ -8,7 +8,7 @@ import Stream from './Stream';
 import Octicon from './Octicon';
 import Error from './Error';
 
-export default class GithubActivity extends React.Component {
+export default class GithubStream extends React.Component {
 
   static propTypes = {
     /**

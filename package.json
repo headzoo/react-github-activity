@@ -55,5 +55,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -s public -o public",
     "deploy-storybook": "storybook-to-ghpages"
+  },
+  "storybook-deployer": {
+    "commitMessage": "Deploy Storybook [skip ci]"
   }
 }

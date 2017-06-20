@@ -6,7 +6,7 @@ const { resolve } = require('path');
 
 const config = {
   entry: [
-    './src/components/GithubStream.jsx',
+    './src/index.js',
     './src/scss/main.scss'
   ],
   output: {
@@ -17,27 +17,6 @@ const config = {
   },
   context: resolve(__dirname, './'),
   plugins: [
-    new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true,
-      debug:    false
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      beautify: false,
-      mangle:   {
-        screw_ie8:   true,
-        keep_fnames: true
-      },
-      compress: {
-        screw_ie8: true
-      },
-      comments: false
-    }),
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('production')
-      }
-    }),
     new ExtractTextPlugin({
       filename: 'index.css',
       disable: false,

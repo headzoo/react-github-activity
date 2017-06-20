@@ -50,7 +50,7 @@
     "test": "jest tests/components/*.jsx",
     "test:utils": "jest tests/utils/*.js",
     "clean": "rimraf dist",
-    "build": "npm run clean && webpack --config webpack.config.prod.js --progress --profile --colors",
+    "build": "npm run clean && webpack --config webpack.config.prod.js -p --progress --profile --colors",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -s public -o public"
   }

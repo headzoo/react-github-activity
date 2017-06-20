@@ -3,7 +3,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
-import GithubStream from '../../src/components/GithubStream';
+import GithubStream from '../../src/index.js';
 import '../../src/scss/main.scss';
 
 storiesOf('GithubStream', module)

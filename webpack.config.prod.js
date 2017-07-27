@@ -6,8 +6,7 @@ const { resolve } = require('path');
 
 const config = {
   entry: [
-    './src/index.js',
-    './src/scss/main.scss'
+    './src/index.js'
   ],
   output: {
     path: resolve(__dirname, 'dist'),

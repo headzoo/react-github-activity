@@ -17,7 +17,6 @@ const config = {
     sourceMapFilename: '[name].map'
   },
   devtool: 'cheap-module-eval-source-map',
-  context: resolve(__dirname, './'),
   devServer: {
     hot: true,
     contentBase: resolve(__dirname, 'dist'),

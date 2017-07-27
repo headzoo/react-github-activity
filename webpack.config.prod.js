@@ -15,14 +15,6 @@ const config = {
     library: 'react-github-stream',
     libraryTarget: 'umd'
   },
-  context: resolve(__dirname, './'),
-  plugins: [
-    new ExtractTextPlugin({
-      filename: 'index.css',
-      disable: false,
-      allChunks: true
-    })
-  ],
   externals: [
     {
       'react': {
@@ -61,10 +53,24 @@ const config = {
       {
         test: /\.jsx?$/,
         exclude: /(node_modules)/,
-        use: 'babel-loader'
+        loader: require.resolve('babel-loader'),
+        query: {
+          presets: [
+            'babel-preset-es2015',
+            'babel-preset-stage-2',
+            'babel-preset-react'
+          ].map(require.resolve)
+        }
       }
     ]
   },
+  plugins: [
+    new ExtractTextPlugin({
+      filename: 'index.css',
+      disable: false,
+      allChunks: true
+    })
+  ],
   resolve: {
     extensions: ['.js', '.jsx']
   }

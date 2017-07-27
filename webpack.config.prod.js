@@ -1,12 +1,10 @@
-'use strict';
-
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const { resolve } = require('path');
 
 const config = {
   entry: [
-    './src/index.js'
+    './src/index.jsx'
   ],
   output: {
     path: resolve(__dirname, 'dist'),

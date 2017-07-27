@@ -1,10 +1,8 @@
-'use strict';
-
 import React from 'react';
-import { ActorLink, RepoLink, IssueLink } from './Links';
+import { ActorLink, IssueLink } from './Links';
 import Avatar from './Avatar';
 
-const IssueCommentEvent = ({data}) => (
+const IssueCommentEvent = ({ data }) => (
   <div>
     <div className="rgs-event-title">
       <ActorLink actor={data.actor} />&nbsp;
@@ -12,9 +10,10 @@ const IssueCommentEvent = ({data}) => (
       <IssueLink
         repo={data.repo}
         issue={data.payload.issue}
-        comment={data.payload.comment} />
+        comment={data.payload.comment}
+      />
     </div>
-    
+
     <div className="rgs-event-details">
       <Avatar actor={data.actor} />
       <div className="rgs-event-message">

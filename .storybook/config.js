@@ -9,7 +9,7 @@ setDefaults({
 });
 
 function loadStories() {
-  require('../tests/storybook/index.js');
+  require('../tests/storybook/index.jsx');
 }
 
 configure(loadStories, module);

@@ -1,4 +1,3 @@
-import './scss/main.scss';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { linkStylesheet } from './utils/dom';
@@ -7,22 +6,23 @@ import GithubAPI from './utils/GithubAPI';
 import Stream from './components/Stream';
 import Octicon from './components/Octicon';
 import Error from './components/Error';
+import './scss/main.scss';
 
 export default class GithubStream extends React.Component {
-  
+
   static propTypes = {
     /**
      * Fetch stream for this user name.
      */
-    user: PropTypes.string.isRequired,
+    user:         PropTypes.string.isRequired,
     /**
      * Max events to render.
      */
-    limit: PropTypes.number,
+    limit:        PropTypes.number,
     /**
      * List of events to display.
      */
-    types: PropTypes.array,
+    types:        PropTypes.array,
     /**
      * Whether to dynamically embed the octicons stylesheet.
      */
@@ -30,20 +30,20 @@ export default class GithubStream extends React.Component {
     /**
      * How often in milliseconds to update the activity stream.
      */
-    interval: PropTypes.number,
+    interval:     PropTypes.number,
     /**
      * Event data.
      */
-    data: PropTypes.array
+    data:         PropTypes.array
   };
-  
+
   static defaultProps = {
     linkOcticons: true,
-    interval: 60000,
-    limit: 30,
-    data: []
+    interval:     60000,
+    limit:        30,
+    data:         []
   };
-  
+
   /**
    * Constructor
    *
@@ -58,7 +58,7 @@ export default class GithubStream extends React.Component {
     this.interval = null;
     this.api = new GithubAPI();
   }
-  
+
   /**
    * Invoked immediately before mounting occurs
    */
@@ -67,7 +67,7 @@ export default class GithubStream extends React.Component {
       linkStylesheet(Octicon.STYLESHEET_URL);
     }
   }
-  
+
   /**
    * Invoked immediately after a component is mounted
    */
@@ -75,17 +75,15 @@ export default class GithubStream extends React.Component {
     this.fetchEvents();
     this.setupInterval();
   }
-  
+
   /**
    * Invoked before a mounted component receives new props
-   *
-   * @param {*} nextProps
    */
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps() {
     this.fetchEvents();
     this.setupInterval();
   }
-  
+
   /**
    * Invoked immediately before a component is unmounted
    */
@@ -94,26 +92,7 @@ export default class GithubStream extends React.Component {
       clearInterval(this.interval);
     }
   }
-  
-  /**
-   * Sets the state to the event data for the user
-   */
-  fetchEvents = () => {
-    if (this.props.data.length > 0) {
-      this.setState({events: this.props.data, error: null});
-      return;
-    }
-    if (this.props.user != "") {
-      this.api.fetchEvents(this.props.user)
-        .then(events => {
-          this.setState({events: events.slice(0, this.props.limit), error: null})
-        })
-        .catch(error => {
-          this.setState({error, events: []});
-        });
-    }
-  };
-  
+
   /**
    * Sets up a regular interval to fetch events for the user
    */
@@ -128,7 +107,26 @@ export default class GithubStream extends React.Component {
       );
     }
   };
-  
+
+  /**
+   * Sets the state to the event data for the user
+   */
+  fetchEvents = () => {
+    if (this.props.data.length > 0) {
+      this.setState({ events: this.props.data, error: null });
+      return;
+    }
+    if (this.props.user !== '') {
+      this.api.fetchEvents(this.props.user)
+        .then((events) => {
+          this.setState({ events: events.slice(0, this.props.limit), error: null });
+        })
+        .catch((error) => {
+          this.setState({ error, events: [] });
+        });
+    }
+  };
+
   /**
    * Renders the component
    *
@@ -142,10 +140,10 @@ export default class GithubStream extends React.Component {
       console.error('Expected Github events to be an array.');
       return null;
     }
-    
-    return <Stream
+
+    return (<Stream
       {...objectKeyFilter(this.props, GithubStream.propTypes)}
       events={this.state.events}
-    />;
+    />);
   }
 }

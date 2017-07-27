@@ -1,5 +1,3 @@
-'use strict';
-
 import GithubAPI from '../../src/utils/GithubAPI.js';
 import path from 'path';
 import readFile from 'fs-readfile-promise';
@@ -15,9 +13,9 @@ class Ajax
 describe('Github', () => {
   const api = new GithubAPI();
   api.setAjax(new Ajax());
-  
+
   it('is not null', () => {
-    
+
     expect.assertions(1);
     return expect(api.fetchEvents('headzoo')).resolves.not.toBeNull();
   });

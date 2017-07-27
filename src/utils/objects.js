@@ -29,6 +29,6 @@ export function objectKeyFilter(obj1, obj2) {
   Object.keys(newProps)
     .filter(key => obj2Keys.indexOf(key) !== -1)
     .forEach(key => delete newProps[key]);
-  
+
   return newProps;
 }

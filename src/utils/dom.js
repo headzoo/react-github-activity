@@ -1,11 +1,8 @@
-'use strict';
-
 export function linkStylesheet(href) {
-  
-  let head = document.head;
-  let link = document.createElement('link');
+  const head = document.head;
+  const link = document.createElement('link');
   link.type = 'text/css';
   link.rel  = 'stylesheet';
   link.href = href;
-  head.appendChild(link)
+  head.appendChild(link);
 }

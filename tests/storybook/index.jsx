@@ -1,9 +1,7 @@
-'use strict';
-
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text } from '@storybook/addon-knobs';
-import GithubStream from '../../src/index.js';
+import { withKnobs } from '@storybook/addon-knobs';
+import GithubStream from '../../src/index';
 import '../../src/scss/main.scss';
 
 storiesOf('GithubStream', module)
@@ -14,7 +12,7 @@ storiesOf('GithubStream', module)
     Basic usage...
   `,
   () => (
-    <div style={{width: "550px"}}>
+    <div style={{ width: 550 }}>
       <GithubStream user="headzoo" limit={5} />
     </div>
   )

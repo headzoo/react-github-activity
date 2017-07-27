@@ -1,8 +1,6 @@
-'use strict';
-
 import React from 'react';
 
-const Error = ({error}) => (
+const Error = ({ error }) => (
   <div className="rgs-error">
     <strong>Github Error</strong>
     {error.message}

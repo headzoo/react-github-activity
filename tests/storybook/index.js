@@ -15,7 +15,7 @@ storiesOf('GithubStream', module)
   `,
   () => (
     <div style={{width: "550px"}}>
-      <GithubStream user="headzoo" />
+      <GithubStream user="headzoo" limit={5} />
     </div>
   )
 );

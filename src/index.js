@@ -1,4 +1,3 @@
-import './scss/main.scss';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { linkStylesheet } from './utils/dom';
@@ -14,6 +13,10 @@ export default class GithubStream extends React.Component {
      * Fetch stream for this user name.
      */
     user: PropTypes.string.isRequired,
+    /**
+     * Max events to render.
+     */
+    limit: PropTypes.number,
     /**
      * List of events to display.
      */
@@ -35,6 +38,7 @@ export default class GithubStream extends React.Component {
   static defaultProps = {
     linkOcticons: true,
     interval: 60000,
+    limit: 30,
     data: []
   };
   
@@ -100,7 +104,7 @@ export default class GithubStream extends React.Component {
     if (this.props.user != "") {
       this.api.fetchEvents(this.props.user)
         .then(events => {
-          this.setState({events, error: null})
+          this.setState({events: events.slice(0, this.props.limit), error: null})
         })
         .catch(error => {
           this.setState({error, events: []});

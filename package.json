@@ -10,10 +10,7 @@
   "author": "Sean Hickey",
   "license": "MIT",
   "dependencies": {
-    "classnames": "^2.2.5",
-    "prop-types": "^15.5.10",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "classnames": "^2.2.5"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.0.1",
@@ -44,6 +41,9 @@
     "jest-cli": "^20.0.4",
     "node-sass": "4.5.2",
     "postcss-loader": "2.0.5",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
     "react-addons-test-utils": "15.5.1",
     "react-storybook-addon-props-combinations": "^0.4.1",
     "rimraf": "2.6.1",
@@ -53,13 +53,17 @@
     "webpack": "2.5.1",
     "webpack-dev-server": "2.4.5"
   },
+  "peerDependencies": {
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1"
+  },
   "scripts": {
+    "clean": "rimraf dist",
+    "build": "npm run clean && webpack --config webpack.config.prod.js -p --progress --profile --colors",
     "test": "jest tests/components/*.jsx",
     "test:utils": "jest tests/utils/*.js",
-    "clean": "rimraf dist",
     "lint": "eslint ./src --cache --cache-location=.cache/eslint --ext .js,.jsx",
     "lint:fix": "npm run lint -- --fix",
-    "build": "npm run clean && webpack --config webpack.config.prod.js -p --progress --profile --colors",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -s public -o public"
   }

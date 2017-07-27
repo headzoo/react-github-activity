@@ -11,9 +11,7 @@ const config = {
   ],
   output: {
     path: resolve(__dirname, 'dist'),
-    filename: 'index.js',
-    library: 'react-github-stream',
-    libraryTarget: 'umd'
+    filename: 'index.js'
   },
   externals: [
     {

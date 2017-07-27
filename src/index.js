@@ -2,6 +2,7 @@ import './scss/main.scss';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { linkStylesheet } from './utils/dom';
+import { objectKeyFilter } from './utils/objects';
 import GithubAPI from './utils/GithubAPI';
 import Stream from './components/Stream';
 import Octicon from './components/Octicon';
@@ -143,7 +144,8 @@ export default class GithubStream extends React.Component {
     }
     
     return <Stream
-      {...this.props}
-      events={this.state.events} />;
+      {...objectKeyFilter(this.props, GithubStream.propTypes)}
+      events={this.state.events}
+    />;
   }
 }
